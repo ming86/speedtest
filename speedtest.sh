@@ -389,6 +389,30 @@ print_speedtest_europe() {
 	rm -rf speedtest.py
 }
 
+print_speedtest_sea() {
+	echo "" | tee -a $log
+	echostyle "## Southeast Asia Speedtest.net"
+	echo "" | tee -a $log
+	printf "%-34s%-17s%-17s%-7s\n" " Location" "Upload" "Download" "Ping" | tee -a $log
+	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
+        speed_test '' 'Nearby                          '
+	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '17516' 'Indonesia, Jakarta (Desnet)     ' 'http://speedtest.desnet.id'
+	speed_test '13871' 'Thailand, Bangkok (CAT Telecom) ' 'http://catspeedtest.net'
+	speed_test '20882' 'Myanmar, Mandalay (Ooredoo)     ' 'http://speedtest.ooredoo.com.mm'
+	speed_test '26845' 'Laos, Vientaine (Mangkone)      ' 'http://speedtest.mangkone.com'
+	speed_test '12545' 'Cambodia, Phnom Penh (Smart)    ' 'http://speedtest.smart.com.kh'
+	speed_test '9903' 'Vietnam, Hanoi (Viettel)        ' 'http://speedtestkv1b.viettel.vn'
+	speed_test '20273' 'Philippines, Manila (Globe Tel) ' 'http://119.92.238.90'
+	speed_test '28912' 'Hong Kong (fdcservers)          ' 'http://lg-hkg.fdcservers.net'
+	speed_test '13506' 'Taiwan, Taipei (TAIFO)          ' 'http://speedtest.taifo.com.tw'
+	speed_test '7139' 'Japan, Tsukuba (SoftEther)      ' 'http://speedtest2.softether.co.jp'
+	 
+	rm -rf speedtest.py
+}
+
 print_speedtest_asia() {
 	echo "" | tee -a $log
 	echostyle "## Asia Speedtest.net"
@@ -1218,6 +1242,23 @@ asia_bench(){
 	sharetest clbin;
 }
 
+sea_bench(){
+	region_name="Southeast Asia"
+	print_intro;
+	benchinit;
+	clear
+	next;
+	get_system_info;
+	print_system_info;
+	ip_info4;
+	next;
+	print_speedtest_sea;
+	next;
+	print_end_time;
+	cleanup;
+	sharetest clbin;
+}
+
 sa_bench(){
 	region_name="South-America"
 	print_intro;
@@ -1367,6 +1408,8 @@ case $1 in
 		europe_bench;;
 	'asia'|'-asia'|'--asia'|'as'|'-as'|'--as'|'Asia'|'-Asia'|'--Asia' )
 		asia_bench;;
+	'sea'|'-sea'|'--sea'| )
+		sea_bench;;
 	'au'|'-au'|'nz'|'-nz'|'AU'|'-AU'|'NZ'|'-NZ'|'-AU-NZ' )
 		au_bench;;
 	'sa'|'-sa'|'--sa'|'-South-America' )
