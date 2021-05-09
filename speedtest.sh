@@ -397,11 +397,11 @@ print_speedtest_mysing() {
 	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
         speed_test '' 'Nearby                          '
 	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
-	speed_test '29504' 'Malaysia, Kuala Lumpur (TM 5G Langkawi)' 'http://poweredby.tm.com.my'
-	speed_test '29504' 'Malaysia, Kuala Lumpur (TM 5G Langkawi)' 'http://poweredby.tm.com.my'
-	speed_test '29504' 'Malaysia, Kuala Lumpur (TM 5G Langkawi)' 'http://poweredby.tm.com.my'
-	speed_test '29504' 'Malaysia, Kuala Lumpur (TM 5G Langkawi)' 'http://poweredby.tm.com.my'
-	speed_test '29504' 'Malaysia, Kuala Lumpur (TM 5G Langkawi)' 'http://poweredby.tm.com.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
 	speed_test '28974' 'Malaysia, Kuala Lumpur (DiGi)' 'http://speedtest.digi.com.my'
 	speed_test '28974' 'Malaysia, Kuala Lumpur (DiGi)' 'http://speedtest.digi.com.my'
 	speed_test '28974' 'Malaysia, Kuala Lumpur (DiGi)' 'http://speedtest.digi.com.my'
