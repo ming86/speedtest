@@ -1408,7 +1408,7 @@ case $1 in
 		europe_bench;;
 	'asia'|'-asia'|'--asia'|'as'|'-as'|'--as'|'Asia'|'-Asia'|'--Asia' )
 		asia_bench;;
-	'sea'|'-sea'|'--sea'| )
+	'sea'|'-sea'|'--sea' )
 		sea_bench;;
 	'au'|'-au'|'nz'|'-nz'|'AU'|'-AU'|'NZ'|'-NZ'|'-AU-NZ' )
 		au_bench;;
