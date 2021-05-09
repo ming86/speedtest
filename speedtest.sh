@@ -389,6 +389,38 @@ print_speedtest_europe() {
 	rm -rf speedtest.py
 }
 
+print_speedtest_mysing() {
+	echo "" | tee -a $log
+	echostyle "## Malaysia & Singapore Speedtest.net"
+	echo "" | tee -a $log
+	printf "%-34s%-17s%-17s%-7s\n" " Location" "Upload" "Download" "Ping" | tee -a $log
+	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
+        speed_test '' 'Nearby                          '
+	printf "%-75s\n" "-" | sed 's/\s/-/g' | tee -a $log
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '27261' 'Malaysia, Kuala Lumpur (Extreme)' 'http://kl-speedtest.ebb.my'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+	speed_test '7556' 'Singapore (PT FirstMedia)       ' 'http://sg-speedtest.link.net.id'
+
+	rm -rf speedtest.py
+}
+
 print_speedtest_sea() {
 	echo "" | tee -a $log
 	echostyle "## Southeast Asia Speedtest.net"
@@ -1259,6 +1291,23 @@ sea_bench(){
 	sharetest clbin;
 }
 
+mysing_bench(){
+	region_name="Malaysia & Singapore"
+	print_intro;
+	benchinit;
+	clear
+	next;
+	get_system_info;
+	print_system_info;
+	ip_info4;
+	next;
+	print_speedtest_mysing;
+	next;
+	print_end_time;
+	cleanup;
+	sharetest clbin;
+}
+
 sa_bench(){
 	region_name="South-America"
 	print_intro;
@@ -1410,6 +1459,8 @@ case $1 in
 		asia_bench;;
 	'sea'|'-sea'|'--sea' )
 		sea_bench;;
+	'mysing'|'-mysing'|'--mysing' )
+		mysing_bench;;
 	'au'|'-au'|'nz'|'-nz'|'AU'|'-AU'|'NZ'|'-NZ'|'-AU-NZ' )
 		au_bench;;
 	'sa'|'-sa'|'--sa'|'-South-America' )
